@@ -14,7 +14,7 @@ $ pacman -S yasm make pkg-config diffutils
 
 4生成makefile文件 enable-shared(共享库) enable-postproc(后期处理用) enable-avresample(调试ffplay用，已过期) 
 enable-gpl(开源许可证，使用enable-postproc需要打开，默认可没有)
-./configure --enable-shared --enable-postproc --enable-avresample --enable-gpl --toolchain=msvc --prefix=./build --enable-cross-compile
+./configure --enable-shared --enable-postproc --enable-avresample --enable-gpl --toolchain=msvc --prefix=./build
 
 可以禁用，禁用可以增加编译速度
 --disable-static --disable-debug --disable-doc --disable-ffmpeg --disable-ffplay

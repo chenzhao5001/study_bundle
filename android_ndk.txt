@@ -1,0 +1,8 @@
+1.lldb  调试工具 ndk选择安装，怎么用还没有学习
+2.jvm(一个app 对应一个jvm,一个进程 ，多进程怎么办？) 
+  JNIEnv(一个java线程对应一个JNIEnv, c/c++ 其他线程访问JNIEnv会导致crash)
+  getIntfromJNI(JNIEnv *env, jobject thiz)  jobject 是java对象，会把调用者的对象传入。
+
+3.待复习：java list 删除中间元素（迭代器）
+
+ 
