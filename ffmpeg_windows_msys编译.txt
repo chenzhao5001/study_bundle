@@ -1,0 +1,28 @@
+1.数据源地址查询
+https://mirrors.ustc.edu.cn/
+
+2.
+D:\msys64\msys2_shell.cmd 为msys启动脚本，
+开头加入 call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+放开：rem set MSYS2_PATH_TYPE=inherit  使得msys可以使用windows环境变量。
+
+环境变量批处理
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat
+
+3.安装前置依赖
+$ pacman -S yasm make pkg-config diffutils
+
+4生成makefile文件 enable-shared(共享库) enable-postproc(后期处理用) enable-avresample(调试ffplay用，已过期) 
+enable-gpl(开源许可证，使用enable-postproc需要打开，默认可没有)
+./configure --enable-shared --enable-postproc --enable-avresample --enable-gpl --toolchain=msvc --prefix=./build --enable-cross-compile
+
+可以禁用，禁用可以增加编译速度
+--disable-static --disable-debug --disable-doc --disable-ffmpeg --disable-ffplay
+--disable-ffprobe --disable-symver --disable-stripping
+
+工具链参数
+  --toolchain=NAME         set tool defaults according to NAME
+                           (gcc-asan, clang-asan, gcc-msan, clang-msan,
+                           gcc-tsan, clang-tsan, gcc-usan, clang-usan,
+                           valgrind-massif, valgrind-memcheck,
+                           msvc, icl, gcov, llvm-cov, hardened)
