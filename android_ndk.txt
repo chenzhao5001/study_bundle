@@ -5,4 +5,9 @@
 
 3.待复习：java list 删除中间元素（迭代器）
 
+4android交叉编译工具链脚本生成
+脚本：build/tools/make-standalone-toolchain.sh
+参数：--toolchain=arm-linux-androideabi-4.9
+          --platform=android-19(最低支持版本)
+           --install-dir=../toolchain(工具链生成路径)
  

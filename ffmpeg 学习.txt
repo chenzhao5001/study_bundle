@@ -1,0 +1,49 @@
+ffmpeg 录制命令
+
+ffmpeg 录屏命令
+mac下 
+ffmpeg -f avfoundation -i 1 -r30 out.yun  录制视频
+ffmpeg -f avfoundation -i :0 -r30 out.yun  录制音频(有冒号)
+1:0 冒号前指定视频，冒号后指定音频
+
+
+-f:指定使用avfoundation采集数据
+-f 强制输入输出文件格式
+
+-i:只能从哪里采集数据 他是一个索引号   1:屏幕，0:摄像头, 音频是其他
+-r:帧率
+
+ffmpeg 播放命令
+ffmpeg -s 2560x1600 -pix_fmt uyvy422 a.out
+-s:分辨率
+-pix_fmt 输出格式
+
+查询avfoundation支持设备
+ffmpeg -f avfoundation -list_devices true -i 
+
+
+windows
+查询可用设备
+
+
+转码命令：
+ffmpeg -i out.mp3 -vcodec copy -acodec copy out.flv
+-i 输入文件
+-vcodec copy 视频处理方式（不改变编解码）
+-acodec copy 音频处理方式（不改变编解码）
+
+Video: h264 (High) (avc1 / 0x31637661), yuv420p(progressive), 1280x720 [SAR 1:1 DAR 16:9], 1151 kb/s, 25 fps, 25 tbr, 12800 tbn (default)
+h264(main base ,hight) h264级别
+fps：帧率 25
+tbr:   时间基
+
+ffmpeg -i test.mp4 -an -vcodec copy c.h264
+抽取音频流，不要视频流
+ffmpeg -i test.mp4 -acodec copy -vn -vn a.aac
+抽取音频流
+
+
+
+fflpay 可以直接播放h264 (里面有宽高) ，不能直接播放yuv，里面没有宽高
+
+
