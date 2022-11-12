@@ -26,3 +26,6 @@ enable-gpl(开源许可证，使用enable-postproc需要打开，默认可没有
                            gcc-tsan, clang-tsan, gcc-usan, clang-usan,
                            valgrind-massif, valgrind-memcheck,
                            msvc, icl, gcov, llvm-cov, hardened)
+
+sudo make -j 8 && make install
+-j 8 表示用8个线程编译 

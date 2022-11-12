@@ -42,8 +42,31 @@ ffmpeg -i test.mp4 -an -vcodec copy c.h264
 ffmpeg -i test.mp4 -acodec copy -vn -vn a.aac
 抽取音频流
 
-
+音视频原始数据
+音频：pcm，视频yuv
 
 fflpay 可以直接播放h264 (里面有宽高) ，不能直接播放yuv，里面没有宽高
+
+ffmpeg 提取原始数据：
+ffmpeg -i a.mp4 -an -c:v rawvideo -pix_fmt yuv420p a.yuv
+-c:v rowvideo  对视频进行编码  rowvideo(原始)
+-pix_fmt yuv420p 像素格式   420音视频中最常用的格式
+尚未解决的问题（播放yun花平，-s参数不生效）
+ffplay -pixel_format yuv420p -video_size 1920x1080 -framerate 1 a.yuv
+指定帧率-framerate(-pixel_format yuv420p -video_size 320x240 貌似只能播放原始数据使用 yuv)
+
+音频提取
+ffmpeg -i test.mp3 -vn -ar 44100 -ac 2 -f s16le a.pcm
+-ar(音频采样率 常用的还有 48k 32k 16k)
+-ac2(c代表channel 此处位双声道 3个以上为立体声)
+-f s16le(抽取出的数据存储格式  s表示有符号 16代表每个数值用16表示 l标时小头)
+ffplay -ar 44100 -ac 2 -f s16le b.pcm
+
+通过ffmpeg 抽取视频数据，如果抽取成h264,无法保存帧率，抽取成mp4或flv可以保存帧率。
+h264的默认帧率为25帧/秒
+
+
+
+
 
 
