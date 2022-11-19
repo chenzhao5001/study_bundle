@@ -1,0 +1,31 @@
+make clean
+
+emconfigure ./configure \
+     --cc="emcc" \
+     --cxx="em++" \
+     --ar="emar" \
+     --cpu=generic \
+     --target-os=none \
+     --ranlib=emranlib \
+     --arch=x86_32 \
+     --disable-doc \
+     --disable-debug \
+     --disable-ffmpeg \
+     --disable-ffplay \
+     --disable-ffprobe \
+     --disable-symver \
+     --disable-everything \
+     --disable-asm \
+     --enable-gpl \
+     --enable-version3 \
+     --enable-nonfree \
+     --enable-cross-compile \
+     --enable-small \
+     --enable-parser=aac \
+     --enable-parser=h264 \
+     --enable-demuxer=h264 \
+     --enable-demuxer=mov \
+     --enable-demuxer=aac \
+     --enable-decoder=h264 \
+     --enable-decoder=aac \
+	 --prefix=./build
